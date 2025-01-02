@@ -13,7 +13,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-internal class UserDetailsViewModel @Inject constructor(
+internal class UserDetailViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     private val dispatchersProvider: DispatchersProvider,
     private val getUserDetailUseCase: GetUserDetailUseCase,

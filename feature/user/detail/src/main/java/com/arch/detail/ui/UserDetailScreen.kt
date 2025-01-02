@@ -6,11 +6,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.arch.common.extension.openBrowser
 import com.arch.common.ui.BaseUiStateScreen
 import com.arch.detail.ui.component.UserDetailsContent
-import com.arch.detail.viewmodel.UserDetailsViewModel
+import com.arch.detail.viewmodel.UserDetailViewModel
 
 @Composable
 internal fun UserDetailScreen(
-    viewModel: UserDetailsViewModel = hiltViewModel(),
+    viewModel: UserDetailViewModel = hiltViewModel(),
     onBackClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
