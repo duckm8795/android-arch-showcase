@@ -5,4 +5,5 @@ data class User(
     val username: String = "",
     val avatarUrl: String = "",
     val url: String = "",
+    val location: String = "",
 )

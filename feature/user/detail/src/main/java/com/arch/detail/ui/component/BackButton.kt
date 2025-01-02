@@ -10,7 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.arch.common.ui.theme.AppTheme
 
 @Composable
-fun BackButton(
+internal fun BackButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {

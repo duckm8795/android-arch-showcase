@@ -31,7 +31,7 @@ internal class UserDetailViewModelTest: BaseViewmodelTest() {
         val userDetails = UserDetail(
             username = "username",
             avatarUrl = "avatarUrl",
-            country = "country",
+            location = "country",
             followers = 0,
             following = 0,
             url = "url",

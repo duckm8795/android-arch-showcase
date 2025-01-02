@@ -21,6 +21,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import com.arch.common.ui.theme.AppTheme
 import com.arch.domain.model.User
+import com.arch.domain.ui.UserItem
 import com.arch.userlist.R
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.flowOf

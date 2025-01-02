@@ -5,7 +5,7 @@ package com.arch.detail.ui
  *
  * @property username The username of the user being displayed.
  * @property avatarUrl The URL of the user's avatar image.
- * @property country The country of the user.
+ * @property location The country of the user.
  * @property followers The number of followers the user has, represented as a [String]. Defaults to "0".
  * @property following The number of users the user is following, represented as a [String]. Defaults to "0".
  * @property url The URL of the user's blog or profile page.
@@ -36,7 +36,7 @@ package com.arch.detail.ui
 internal data class UserDetailUiState(
     val username: String = "",
     val avatarUrl: String = "",
-    val country: String = "",
+    val location: String = "",
     val followers: String = "0",
     val following: String = "0",
     val url: String = "",

@@ -18,6 +18,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.arch.common.ui.theme.AppTheme
 import com.arch.detail.ui.UserDetailUiState
+import com.arch.domain.model.User
+import com.arch.domain.ui.UserItem
 import com.arch.userdetail.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -43,10 +45,12 @@ internal fun UserDetailsContent(
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            UserDetailsCard(
-                username = userDetails.username,
-                avatarUrl = userDetails.avatarUrl,
-                country = userDetails.country,
+            UserItem(
+                user = User(
+                    username = userDetails.username,
+                    avatarUrl = userDetails.avatarUrl,
+                    location = userDetails.location,
+                ),
             )
             Row(
                 modifier = Modifier
@@ -84,7 +88,7 @@ private fun UserDetailsContentPreview() {
             userDetails = UserDetailUiState(
                 username = "user1",
                 avatarUrl = "https://avatars.githubusercontent.com/u/123456",
-                country = "Vietnam",
+                location = "Vietnam",
                 followers = "100+",
                 following = "200+",
                 url = "https://tyme.com",

@@ -1,4 +1,4 @@
-package com.arch.detail.ui.component
+package com.arch.domain.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
@@ -14,11 +14,11 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.arch.common.ui.theme.AppTheme
-import com.arch.userdetail.R
+import com.arch.domain.R
 
 @Composable
-internal fun UserCountry(
-    country: String,
+internal fun UserLocation(
+    location: String,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -30,7 +30,7 @@ internal fun UserCountry(
             colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurface),
         )
         Text(
-            text = country,
+            text = location,
             modifier = Modifier.padding(start = 2.dp),
             style = MaterialTheme.typography.bodyLarge,
         )
@@ -41,8 +41,8 @@ internal fun UserCountry(
 @Composable
 private fun UserCountryPreview() {
     AppTheme {
-        UserCountry(
-            country = "Ho Chi Minh City, \nVietnam",
+        UserLocation(
+            location = "Ho Chi Minh City, \nVietnam",
             modifier = Modifier.width(200.dp),
         )
     }

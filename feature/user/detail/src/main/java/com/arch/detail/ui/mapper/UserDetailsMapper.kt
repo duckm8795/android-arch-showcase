@@ -6,7 +6,7 @@ import com.arch.domain.model.UserDetail
 internal fun UserDetail.toUiState() = UserDetailUiState(
     username = username,
     avatarUrl = avatarUrl,
-    country = country,
+    location = location,
     followers = "$followers+",
     following = "$following+",
     url = url,
