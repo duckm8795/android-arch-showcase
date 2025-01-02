@@ -20,7 +20,11 @@ internal fun MainNavHost(
         startDestination = UserListRoute,
         modifier = modifier,
     ) {
-        userDetailScreen()
+        userDetailScreen(
+            onBackClick = {
+                navController.navigateUp()
+            }
+        )
         userListScreen(
             onUserClick = { username ->
                 navController.navigateToUserDetail(username)

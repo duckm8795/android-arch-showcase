@@ -12,9 +12,9 @@ internal data class UserDetailRoute(
     val username: String = "",
 )
 
-fun NavGraphBuilder.userDetailScreen() {
+fun NavGraphBuilder.userDetailScreen(onBackClick: () -> Unit) {
     composable<UserDetailRoute> {
-        UserDetailScreen()
+        UserDetailScreen(onBackClick = onBackClick)
     }
 }
 
