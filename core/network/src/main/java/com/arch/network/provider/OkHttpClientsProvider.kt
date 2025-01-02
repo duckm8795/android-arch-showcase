@@ -31,8 +31,8 @@ internal class OkHttpClientsProviderImpl @Inject constructor(
     }
 
     private companion object {
-        private const val CONNECT_TIMEOUT = 30L
-        private const val READ_TIMEOUT = 30L
-        private const val WRITE_TIMEOUT = 30L
+        private const val CONNECT_TIMEOUT = 10L
+        private const val READ_TIMEOUT = 10L
+        private const val WRITE_TIMEOUT = 10L
     }
 }

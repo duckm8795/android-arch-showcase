@@ -18,7 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.arch.common.ui.theme.AppTheme
 import com.arch.detail.ui.UserDetailUiState
-import com.arch.domain.ui.BackButton
 import com.arch.userdetail.R
 
 @OptIn(ExperimentalMaterial3Api::class)

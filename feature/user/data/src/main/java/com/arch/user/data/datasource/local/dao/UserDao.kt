@@ -20,8 +20,10 @@ interface UserDao {
     suspend fun deleteAll()
 
     @Transaction
-    suspend fun upsertAndDeleteAll(entities: List<UserEntity>) {
-        deleteAll()
+    suspend fun upsertAndDeleteAll(needToDelete: Boolean, entities: List<UserEntity>) {
+        if (needToDelete) {
+            deleteAll()
+        }
         upsertAll(entities)
     }
 }

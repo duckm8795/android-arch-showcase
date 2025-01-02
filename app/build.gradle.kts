@@ -44,11 +44,6 @@ android {
 dependencies {
     implementation(project(":feature:user:list"))
     implementation(project(":feature:user:detail"))
-    implementation(project(":feature:user:data"))
-
-    implementation(project(":feature:home"))
-
-    implementation(project(":core:network"))
     implementation(project(":core:common"))
 
     implementation(libs.kotlinx.serialization.json)
@@ -57,6 +52,4 @@ dependencies {
     kapt(libs.hilt.compiler)
     implementation(libs.androidx.navigation.compose)
 
-
-    testImplementation(libs.junit)
 }

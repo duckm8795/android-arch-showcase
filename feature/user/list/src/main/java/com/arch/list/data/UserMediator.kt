@@ -43,10 +43,16 @@ internal class UserMediator @Inject constructor(
                 since = since,
             )
             val entities = responses.map { response -> response.toUserEntity() }
+            val isRefresh = loadType == LoadType.REFRESH
+
             userDao.upsertAndDeleteAll(
+                needToDelete = isRefresh,
                 entities = entities,
             )
-            userListPreference.lastUpdatedUserList = System.currentTimeMillis()
+            if (isRefresh) {
+                userListPreference.lastUpdatedUserList = System.currentTimeMillis()
+            }
+
             return MediatorResult.Success(
                 endOfPaginationReached = responses.size < state.config.pageSize
             )

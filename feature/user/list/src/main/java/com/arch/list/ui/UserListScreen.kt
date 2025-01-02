@@ -22,11 +22,13 @@ internal fun UserListScreen(
     LaunchedEffect(pagingItems.loadState.refresh) {
         when (pagingItems.loadState.refresh) {
             is LoadState.Loading -> viewModel.setLoading(true)
-            is LoadState.NotLoading -> viewModel.setLoading(false)
             is LoadState.Error -> {
                 // handle error later
             }
-            else -> Unit
+            else -> {
+                viewModel.setLoading(false)
+                viewModel.setRefreshing(false)
+            }
         }
     }
 
@@ -34,6 +36,11 @@ internal fun UserListScreen(
         viewModel = viewModel,
     ) { uiState ->
         UserListContent(
+            isRefreshing = uiState.isRefreshing,
+            onRefresh = {
+                pagingItems.refresh()
+                viewModel.setRefreshing(true)
+            },
             pagingItems = pagingItems,
             onRetryClick = { pagingItems.retry() },
             onUserClick = onUserClick,

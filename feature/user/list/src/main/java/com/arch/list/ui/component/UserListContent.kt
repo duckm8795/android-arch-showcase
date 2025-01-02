@@ -6,6 +6,7 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -21,8 +22,10 @@ import kotlinx.coroutines.flow.flowOf
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun UserListContent(
-    pagingItems: LazyPagingItems<User>,
     modifier: Modifier = Modifier,
+    pagingItems: LazyPagingItems<User>,
+    isRefreshing: Boolean = false,
+    onRefresh: () -> Unit = {},
     onRetryClick: () -> Unit = {},
     onUserClick: (String) -> Unit = {},
     onUrlClick: (String) -> Unit = {},
@@ -35,13 +38,19 @@ internal fun UserListContent(
             )
         }
     ) { paddingValues ->
-        UserList(
-            pagingItems = pagingItems,
-            modifier = Modifier.fillMaxSize().padding(paddingValues),
-            onRetryClick = onRetryClick,
-            onUserClick = onUserClick,
-            onUrlClick = onUrlClick,
-        )
+        PullToRefreshBox(
+            isRefreshing = isRefreshing,
+            onRefresh = onRefresh,
+            modifier = Modifier.padding(paddingValues)
+        ) {
+            UserList(
+                pagingItems = pagingItems,
+                modifier = Modifier.fillMaxSize(),
+                onRetryClick = onRetryClick,
+                onUserClick = onUserClick,
+                onUrlClick = onUrlClick,
+            )
+        }
     }
 }
 

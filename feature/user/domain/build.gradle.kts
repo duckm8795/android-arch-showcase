@@ -34,7 +34,6 @@ android {
 
 dependencies {
     implementation(project(":core:common"))
-    implementation(project(":feature:user:data"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.material3)

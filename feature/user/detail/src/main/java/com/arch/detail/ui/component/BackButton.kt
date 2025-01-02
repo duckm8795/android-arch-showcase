@@ -1,4 +1,4 @@
-package com.arch.domain.ui
+package com.arch.detail.ui.component
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack

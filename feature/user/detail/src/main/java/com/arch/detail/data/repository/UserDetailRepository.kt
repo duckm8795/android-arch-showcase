@@ -16,6 +16,6 @@ internal class UserDetailRepositoryImpl @Inject constructor(
 ) : UserDetailRepository {
 
     override fun getUserDetail(username: String): Flow<UserDetail> = flow {
-        emit(userService.getUserDetails(username).toModel())
+        emit(userService.getUserDetail(username).toModel())
     }
 }

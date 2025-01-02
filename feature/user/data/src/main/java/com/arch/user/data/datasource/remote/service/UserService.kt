@@ -15,7 +15,7 @@ interface UserService {
     ): List<UserResponse>
 
     @GET("/users/{username}")
-    suspend fun getUserDetails(
+    suspend fun getUserDetail(
         @Path("username") username: String,
     ): UserDetailResponse
 }

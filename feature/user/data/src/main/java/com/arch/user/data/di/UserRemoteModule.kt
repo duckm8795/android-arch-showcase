@@ -15,16 +15,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 internal class UserRemoteModule {
 
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClientsProvider): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(EnvConst.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient.provideOkHttpClient())
-            .build()
-    }
+    fun provideRetrofit(okHttpClient: OkHttpClientsProvider): Retrofit = Retrofit.Builder()
+        .baseUrl(EnvConst.BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(okHttpClient.provideOkHttpClient())
+        .build()
 
     @Provides
-    fun provideUserService(retrofit: Retrofit): UserService {
-        return retrofit.create(UserService::class.java)
-    }
+    fun provideUserService(retrofit: Retrofit): UserService = retrofit.create(UserService::class.java)
 }

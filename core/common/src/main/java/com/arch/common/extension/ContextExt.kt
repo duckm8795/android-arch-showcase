@@ -10,5 +10,3 @@ fun Context.openBrowser(url: String) {
         startActivity(intent)
     }
 }
-
-fun Int?.orZero() = this ?: 0

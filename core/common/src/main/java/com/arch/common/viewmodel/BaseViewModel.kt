@@ -26,8 +26,6 @@ abstract class BaseViewModel<UiState, Event>(initialUiState: UiState) : ViewMode
     val isLoading: StateFlow<Boolean>
         get() = _isLoading.asStateFlow()
 
-
-    // Accessor for the current UI state value
     val uiState: UiState
         get() = _uiState.value
 
@@ -58,4 +56,5 @@ abstract class BaseViewModel<UiState, Event>(initialUiState: UiState) : ViewMode
 }
 
 data object NoEvent
+
 data object NoUiState

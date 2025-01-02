@@ -1,4 +1,4 @@
-package com.arch.showcase.nav
+package com.arch.showcase
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
