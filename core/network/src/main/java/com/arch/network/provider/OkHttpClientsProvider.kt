@@ -1,16 +1,19 @@
 package com.arch.network.provider
 
+import com.arch.common.constant.EnvConst.IS_ENABLED_LOGGING
 import com.arch.network.interceptor.HeaderInterceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-internal interface OkHttpClientsProvider {
+interface OkHttpClientsProvider {
     fun provideOkHttpClient(): OkHttpClient
 }
 
 internal class OkHttpClientsProviderImpl @Inject constructor(
     private val headerInterceptor: HeaderInterceptor,
+    private val httpLoggingInterceptor: HttpLoggingInterceptor,
 ) : OkHttpClientsProvider {
 
     override fun provideOkHttpClient(): OkHttpClient {
@@ -19,6 +22,11 @@ internal class OkHttpClientsProviderImpl @Inject constructor(
             .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
+            .apply {
+                if (IS_ENABLED_LOGGING) {
+                    addInterceptor(httpLoggingInterceptor)
+                }
+            }
             .build()
     }
 

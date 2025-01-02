@@ -8,8 +8,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data object UserListRoute
 
-fun NavGraphBuilder.userListScreen() {
+fun NavGraphBuilder.userListScreen(onUserClick: (String) -> Unit) {
     composable<UserListRoute> {
-        UserListScreen()
+        UserListScreen(onUserClick = onUserClick)
     }
 }

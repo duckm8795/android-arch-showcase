@@ -1,0 +1,4 @@
+<resources>
+    <string name="user_list_title">GitHub Users</string>
+    <string name="user_list_retry_text">Retry</string>
+</resources>

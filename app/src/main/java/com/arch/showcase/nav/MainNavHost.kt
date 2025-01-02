@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.arch.detail.nav.navigateToUserDetail
 import com.arch.detail.nav.userDetailScreen
 import com.arch.list.nav.UserListRoute
 import com.arch.list.nav.userListScreen
@@ -20,6 +21,10 @@ internal fun MainNavHost(
         modifier = modifier,
     ) {
         userDetailScreen()
-        userListScreen()
+        userListScreen(
+            onUserClick = { username ->
+                navController.navigateToUserDetail(username)
+            }
+        )
     }
 }

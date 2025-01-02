@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-internal interface UserService {
+interface UserService {
 
     @GET("/users")
     suspend fun getUsers(

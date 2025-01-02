@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-internal data class UserEntity(
+data class UserEntity(
     @PrimaryKey
     @ColumnInfo("id")
     val id: Int? = null,
