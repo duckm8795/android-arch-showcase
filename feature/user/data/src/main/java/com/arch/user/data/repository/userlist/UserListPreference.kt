@@ -1,4 +1,4 @@
-package com.arch.list.data.preference
+package com.arch.user.data.repository.userlist
 
 import android.content.SharedPreferences
 import androidx.core.content.edit

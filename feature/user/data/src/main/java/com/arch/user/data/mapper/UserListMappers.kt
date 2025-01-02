@@ -1,4 +1,4 @@
-package com.arch.list.data.mapper
+package com.arch.user.data.mapper
 
 import com.arch.common.extension.orZero
 import com.arch.domain.model.User

@@ -1,4 +1,4 @@
-package com.arch.list.data
+package com.arch.user.data.repository.userlist
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
@@ -6,17 +6,13 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
 import com.arch.domain.model.User
-import com.arch.list.data.mapper.toUserModel
-import com.arch.list.data.preference.UserListPreference
+import com.arch.domain.repository.UserListRepository
+import com.arch.user.data.mapper.toUserModel
 import com.arch.user.data.datasource.local.dao.UserDao
 import com.arch.user.data.datasource.remote.service.UserService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
-
-internal interface UserListRepository {
-    fun getUsers(): Flow<PagingData<User>>
-}
 
 /**
  * Implementation of [UserListRepository] that provides paginated user data by combining

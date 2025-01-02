@@ -34,6 +34,7 @@ android {
 dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:common"))
+    implementation(project(":feature:user:domain"))
 
     implementation(libs.room.ktx)
     implementation(libs.room.paging)
@@ -48,7 +49,11 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
+    testImplementation(project(":core:testing"))
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotest)
+    testImplementation(libs.turbine)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

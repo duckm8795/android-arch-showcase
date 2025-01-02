@@ -8,7 +8,7 @@ import androidx.room.Upsert
 import com.arch.user.data.datasource.local.entity.UserEntity
 
 @Dao
-interface UserDao {
+internal interface UserDao {
 
     @Upsert
     suspend fun upsertAll(entities: List<UserEntity>)

@@ -1,13 +1,14 @@
-package com.arch.list.data
+package com.arch.user.data
 
 import androidx.paging.PagingData
 import androidx.paging.PagingSource
 import app.cash.turbine.test
 import com.arch.domain.model.User
-import com.arch.list.data.preference.UserListPreference
+import com.arch.user.data.repository.userlist.UserListPreference
 import com.arch.user.data.datasource.local.dao.UserDao
 import com.arch.user.data.datasource.local.entity.UserEntity
 import com.arch.user.data.datasource.remote.service.UserService
+import com.arch.user.data.repository.userlist.UserListRepositoryImpl
 import io.kotest.matchers.should
 import io.kotest.matchers.types.beInstanceOf
 import io.mockk.coEvery

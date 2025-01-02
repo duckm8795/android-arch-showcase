@@ -1,11 +1,10 @@
-package com.arch.list.data
+package com.arch.user.data.repository.userlist
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.arch.list.data.mapper.toUserEntity
-import com.arch.list.data.preference.UserListPreference
+import com.arch.user.data.mapper.toUserEntity
 import com.arch.user.data.datasource.local.dao.UserDao
 import com.arch.user.data.datasource.local.entity.UserEntity
 import com.arch.user.data.datasource.remote.service.UserService

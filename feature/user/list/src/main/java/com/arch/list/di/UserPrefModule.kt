@@ -10,10 +10,8 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal interface UserPrefModule {
-    companion object {
-        @Provides
-        @Singleton
-        fun provideSharePref(@ApplicationContext context: Context) = context.getSharedPreferences("user_list_pref", Context.MODE_PRIVATE)
-    }
+internal class UserPrefModule {
+    @Provides
+    @Singleton
+    fun provideUserListSharePref(@ApplicationContext context: Context) = context.getSharedPreferences("user_list_pref", Context.MODE_PRIVATE)
 }
