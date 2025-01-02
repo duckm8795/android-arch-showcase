@@ -7,7 +7,19 @@ import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
+/**
+ * Provides a mechanism for creating and configuring instances of [OkHttpClient].
+ *
+ * This interface abstracts the creation of an [OkHttpClient] to allow for different implementations
+ * and to facilitate testing by enabling mock or custom clients.
+ */
 interface OkHttpClientsProvider {
+    /**
+     * Creates and provides an instance of [OkHttpClient] configured with the desired interceptors
+     * and timeouts.
+     *
+     * @return A fully configured [OkHttpClient] instance.
+     */
     fun provideOkHttpClient(): OkHttpClient
 }
 

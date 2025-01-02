@@ -19,6 +19,56 @@ import com.arch.domain.model.User
 import com.arch.userlist.R
 import kotlinx.coroutines.flow.flowOf
 
+/**
+ * Composable function that renders the main content of the User List screen, including a top app bar,
+ * a pull-to-refresh layout, and a paginated user list.
+ *
+ * @param modifier A [Modifier] to customize the layout or appearance of the content. Defaults to [Modifier].
+ * @param pagingItems A [LazyPagingItems] of [User], providing the paginated user data to display.
+ * @param isRefreshing A [Boolean] flag indicating whether the pull-to-refresh indicator is active.
+ * Defaults to `false`.
+ * @param onRefresh A lambda function invoked when the user performs a pull-to-refresh action.
+ * Defaults to an empty function.
+ * @param onRetryClick A lambda function invoked when the user clicks the retry button in case of a loading error.
+ * Defaults to an empty function.
+ * @param onUserClick A lambda function invoked when a user is clicked. Receives the username as a [String].
+ * Defaults to an empty function.
+ * @param onUrlClick A lambda function invoked when a URL is clicked. Receives the URL as a [String].
+ * Defaults to an empty function.
+ *
+ * Features:
+ * - Displays a [CenterAlignedTopAppBar] with the title of the screen.
+ * - Uses a [PullToRefreshBox] to enable pull-to-refresh functionality.
+ * - Displays a [UserList] composable to render the list of users, with support for paging, retries, and interactions.
+ * - Handles padding for the content area using the `paddingValues` from [Scaffold].
+ *
+ * Structure:
+ * - Top bar: Displays the title of the screen.
+ * - Refresh layout: Wraps the user list in a pull-to-refresh container.
+ * - User list: Displays paginated user data with support for click interactions and error handling.
+ *
+ * Example Usage:
+ * ```kotlin
+ * @Composable
+ * fun ExampleUserListScreen() {
+ *     val pagingItems = remember { FakePagingSource().collectAsLazyPagingItems() }
+ *     UserListContent(
+ *         pagingItems = pagingItems,
+ *         isRefreshing = false,
+ *         onRefresh = { pagingItems.refresh() },
+ *         onRetryClick = { pagingItems.retry() },
+ *         onUserClick = { username -> println("User clicked: $username") },
+ *         onUrlClick = { url -> println("URL clicked: $url") }
+ *     )
+ * }
+ * ```
+ *
+ * Notes:
+ * - The [UserList] composable is responsible for rendering the actual list of users.
+ * - Ensure the [pagingItems] flow is properly managed in the parent composable to avoid data inconsistencies.
+ * - The default behavior for click handlers is to do nothing; customize these lambdas as needed.
+ */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun UserListContent(

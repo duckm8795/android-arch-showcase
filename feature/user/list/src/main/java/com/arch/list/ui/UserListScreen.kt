@@ -10,7 +10,45 @@ import com.arch.common.extension.openBrowser
 import com.arch.common.ui.BaseUiStateScreen
 import com.arch.list.ui.component.UserListContent
 import com.arch.list.viewmodel.UserListViewModel
-
+/**
+ * Composable function that renders the User List screen, integrating UI state, paging, and refresh logic.
+ *
+ * @param viewModel The [UserListViewModel] responsible for managing the screen's UI state and user list data.
+ * Defaults to an instance provided by [hiltViewModel].
+ * @param onUserClick A callback function triggered when a user is clicked. Receives the username as a [String].
+ *
+ * Features:
+ * - Integrates with a [LazyPagingItems] flow to display a paginated list of users.
+ * - Handles loading and error states from the paging source.
+ * - Supports pull-to-refresh functionality using [isRefreshing] and [onRefresh].
+ * - Allows users to retry failed loading operations and open external URLs.
+ *
+ * Structure:
+ * - Uses [BaseUiStateScreen] to handle loading indicators and manage UI state updates.
+ * - Observes the [LoadState] of [pagingItems] to trigger loading and error handling.
+ * - Delegates the actual UI rendering to [UserListContent].
+ *
+ * Parameters Observed:
+ * - `pagingItems.loadState.refresh`: Monitored using [LaunchedEffect] to update loading and refreshing states.
+ * - `uiState.isRefreshing`: Determines whether the pull-to-refresh indicator is shown.
+ *
+ * Example Usage:
+ * ```kotlin
+ * @Composable
+ * fun AppNavigation() {
+ *     val navController = rememberNavController()
+ *     NavHost(navController = navController, startDestination = UserListRoute) {
+ *         userListScreen { username ->
+ *             navController.navigate("userDetail/$username")
+ *         }
+ *     }
+ * }
+ * ```
+ *
+ * Notes:
+ * - The `onUrlClick` action uses [Context.openBrowser] to open external URLs.
+ * - Error handling in the `refresh` state is currently a placeholder and should be implemented.
+ */
 @Composable
 internal fun UserListScreen(
     viewModel: UserListViewModel = hiltViewModel(),
