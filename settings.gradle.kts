@@ -21,7 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "Android Arch Showcase"
 include(":app")
-include(":feature:user:userlist")
-include(":feature:user:userdetail")
+include(":feature:user:list")
+include(":feature:user:detail")
 include(":feature:home")
 include(":core:network")
+include(":core:common")
+include(":feature:user:data")
