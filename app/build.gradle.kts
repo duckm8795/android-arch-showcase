@@ -2,16 +2,18 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
     namespace = "com.arch.showcase"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.arch.showcase"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -37,6 +39,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
